@@ -1,0 +1,149 @@
+<!--Home Page for My Portfolio-->
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>PSHYCHC GAME</title>
+
+    <!--Adding CSS Style to my portfolio page-->
+    <link rel="stylesheet" href="assets/css/Reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- <script src="assets/javascript/game.js"> </script> -->
+
+</head>
+
+<body>
+    <!-- JavaScript Code -->
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            console.log("Wanna Play Again!! huh Lets Guess");
+
+            var winCounter = 0;
+            var looseCounter = 0;
+            var GussessLeftCount = 10;
+            var NewParaText = "0";
+            var isPlayagain = false;
+
+            //   Array for Alphabates- Here we are provided an initial array of letters.
+            var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+            var PressedKeys = $("#PressedKey");
+            var winCount = $("#WinPlaceHolder");
+            var looseCount = $("#LoosesPlaceHolder");
+            var guessLeft = $("#RemaningChances");
+            var psychcPlayer = "0";
+
+            //Reset Function to reset all variables and placeholders
+            function resetAll() {
+                GussessLeftCount = 9;
+                winCounter = 0;
+                looseCounter = 0;
+                PressedKeys.text(" ");
+                winCount.text(0);
+                looseCount.text(0);
+                guessLeft.text(9);
+                console.log("Reset all variables-------");
+            }
+            //Call function Reset All
+            resetAll();
+            ////////////////////////////////////////////////////////
+            document.onkeyup = function (event) {
+                NewParaText = event.key;
+                //NewPara.toLowerCase()
+                NewParaText = NewParaText.toUpperCase();
+                PressedKeys.append(NewParaText);
+
+
+                var psychcPlayer = "0";
+                var random = Math.floor(Math.random() * 26) + 1;
+                psychcPlayer = letters[random];
+                console.log(psychcPlayer);
+                console.log(NewParaText);
+                GussessLeftCount--;
+                guessLeft.text(GussessLeftCount);
+                if (NewParaText == psychcPlayer) {
+                    //Print counter variables on UI
+                    winCounter++
+                    winCount.text(winCounter);
+                }
+                else {
+                    looseCounter++
+                    looseCount.text(looseCounter);
+                }
+                //Game is over, user wants to play again
+                if (GussessLeftCount == 0) {
+                    //isPlayagain = confirm("You Wanna Play Again??");
+                    resetAll();
+                }
+            }
+
+        });
+
+    </script>
+
+    <!-- HTML CODE -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="assets/images/word-guessing-game.jpg" class="thumbnail" alt="My Pic1">
+                <h1>PSYCHC GAME</h1>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <!-- <img src="assets/images/512x512bb.jpg" class="thumbnail" alt="My Pic1"> -->
+                <p>
+                    Guess what letter I am thinking of!!
+                </p>
+            </div>
+            <div class="col-sm-3">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Win:
+            </div>
+            <div id="WinPlaceHolder" class="col-sm-3">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Looses:
+            </div>
+            <div id="LoosesPlaceHolder" class="col-sm-3">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Guesses left:
+            </div>
+            <div id="RemaningChances" class="col-sm-3">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Your guesses so far:
+            </div>
+            <div id="PressedKey" class="col-sm-3">
+                <!-- Text on key press even -->
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

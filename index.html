@@ -14,77 +14,13 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!-- <script src="assets/javascript/game.js"> </script> -->
+    <script src="assets/javascript/game.js"> </script>
 
 </head>
 
 <body>
-    <!-- {/* // JavaScript function that wraps everything */} -->
-    <script type="text/javascript">
 
-        $(document).ready(function () {
-
-            //   {/* Declaring the Counter */}
-            var winCounter = 0;
-            var looseCounter = 0;
-            var NewParaText = "0";
-
-            //   Array for Alphabates
-            // Here we are provided an initial array of letters.
-            var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
-
-            //   for (var i = 0; i < letters.length; i++) {
-            //     var letterBtn = $("<button>");
-            //     letterBtn.addClass("letter-button letter letter-button-color");
-            //     letterBtn.attr("data-letter", letters[i]);
-            //     letterBtn.text(letters[i]);
-            //     $("#buttons").append(letterBtn);
-            //   }
-
-            //Key Event Listner
-            
-           
-                document.onkeyup = function (event) {
-                    var PressedKeys = $("#PressedKey");
-                    //var NewPara = $("<p>");
-                    NewParaText = event.key;
-                    //NewPara.toLowerCase()
-                    NewParaText = NewParaText.toUpperCase();
-                    PressedKeys.append(NewParaText);
-                
-                    //Add Math function for random number
-                    var psychcPlayer = "0";
-                    var random = Math.floor(Math.random() * 26) + 1;
-                    psychcPlayer = letters[random];
-                    console.log(psychcPlayer);
-                    console.log(NewParaText);
-
-                    if(NewParaText == psychcPlayer)
-                    {
-                        winCounter++
-                    }
-                    else
-                    {
-                        looseCounter++
-                    }
-                    //Print counter variables on UI
-                    //WinPlaceHolder
-                    var winCount = $("#WinPlaceHolder");
-                    winCount.text = winCounter;
-
-                    var looseCount = $("#LoosesPlaceHolder");
-                    looseCount.text(looseCounter);
-
-
-                }//End event listner
-           // }//End For
-            alert("Wanna Play Again!! huh");
-
-        });
-    </script>
-    <!-- //javascript -->
-
-    <!--HTML CODE FOR UI-->
+    <!-- HTML CODE -->
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -109,7 +45,7 @@
                 Win:
             </div>
             <div id="WinPlaceHolder" class="col-sm-3">
-                
+
             </div>
         </div>
         <div class="row">
@@ -117,7 +53,7 @@
                 Looses:
             </div>
             <div id="LoosesPlaceHolder" class="col-sm-3">
-                
+
             </div>
         </div>
         <div class="row">
@@ -125,7 +61,7 @@
                 Guesses left:
             </div>
             <div id="RemaningChances" class="col-sm-3">
-                
+
             </div>
         </div>
         <div class="row">
@@ -136,9 +72,7 @@
                 <!-- Text on key press even -->
             </div>
         </div>
-
     </div>
-
 </body>
 
 </html>
