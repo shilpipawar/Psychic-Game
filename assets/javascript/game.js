@@ -17,6 +17,10 @@ $(document).ready(function () {
     var guessLeft = $("#RemaningChances");
     var psychcPlayer = "0";
 
+    // Gets Link for Theme Song
+    var audioElement = document.createElement("audio");
+    audioElement.setAttribute("src", "assets/electric-typewriter-daniel_simon.wav");
+
     //Reset Function to reset all variables and placeholders
     function resetAll() {
         GussessLeftCount = 9;
@@ -26,6 +30,7 @@ $(document).ready(function () {
         winCount.text(0);
         looseCount.text(0);
         guessLeft.text(9);
+        audioElement.pause();
         console.log("Reset all variables-------");
     }
     //Call function Reset All
@@ -36,8 +41,7 @@ $(document).ready(function () {
         //NewPara.toLowerCase()
         NewParaText = NewParaText.toUpperCase();
         PressedKeys.append(NewParaText);
-
-
+        audioElement.play();
         var psychcPlayer = "0";
         var random = Math.floor(Math.random() * 26) + 1;
         psychcPlayer = letters[random];
@@ -54,6 +58,7 @@ $(document).ready(function () {
             looseCounter++
             looseCount.text(looseCounter);
         }
+       
         //Game is over, user wants to play again
         if (GussessLeftCount == 0) {
             //isPlayagain = confirm("You Wanna Play Again??");
