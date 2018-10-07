@@ -13,7 +13,11 @@
         crossorigin="anonymous">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-deep-orange.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/Theme.css"> -->
     <!-- <script src="assets/javascript/game.js"> </script> -->
 
 </head>
@@ -28,7 +32,7 @@
 
             var winCounter = 0;
             var looseCounter = 0;
-            var GussessLeftCount = 10;
+            var GussessLeftCount = 12;
             var NewParaText = "0";
             var isPlayagain = false;
 
@@ -43,7 +47,7 @@
 
             //Reset Function to reset all variables and placeholders
             function resetAll() {
-                GussessLeftCount = 9;
+                GussessLeftCount = 12;
                 winCounter = 0;
                 looseCounter = 0;
                 PressedKeys.text(" ");
@@ -94,15 +98,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <img src="assets/images/word-guessing-game.jpg" class="thumbnail" alt="My Pic1">
-                <h1>PSYCHC GAME</h1>
+                <h1 class="w3-theme-d1" style="text-align: center">PSYCHC GAME</h1>
             </div>
-
         </div>
         <div class="row">
             <div class="col-sm-3">
                 <!-- <img src="assets/images/512x512bb.jpg" class="thumbnail" alt="My Pic1"> -->
-                <p>
-                    Guess what letter I am thinking of!!
+                <p class="w3-container w3-theme w3-card" style="text-align: center">
+                    Press any key to get started!!
                 </p>
             </div>
             <div class="col-sm-3">
@@ -114,12 +117,13 @@
                 Win:
             </div>
             <div id="WinPlaceHolder" class="col-sm-3">
-
+                <p>_ _ _ _ _ _ _</p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-3">
-                Looses:
+                Letters Already Guessed:
+
             </div>
             <div id="LoosesPlaceHolder" class="col-sm-3">
 
@@ -127,7 +131,7 @@
         </div>
         <div class="row">
             <div class="col-sm-3">
-                Guesses left:
+                Number of Guesses Remaining:
             </div>
             <div id="RemaningChances" class="col-sm-3">
 

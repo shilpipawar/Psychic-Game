@@ -37,6 +37,7 @@ $(document).ready(function () {
     resetAll();
     ////////////////////////////////////////////////////////
     document.onkeyup = function (event) {
+    
         NewParaText = event.key;
         //NewPara.toLowerCase()
         NewParaText = NewParaText.toUpperCase();
