@@ -37,34 +37,43 @@ $(document).ready(function () {
     resetAll();
     ////////////////////////////////////////////////////////
     document.onkeyup = function (event) {
-    
-        NewParaText = event.key;
-        //NewPara.toLowerCase()
-        NewParaText = NewParaText.toUpperCase();
-        PressedKeys.append(NewParaText);
-        audioElement.play();
-        var psychcPlayer = "0";
-        var random = Math.floor(Math.random() * 26) + 1;
-        psychcPlayer = letters[random];
-        console.log(psychcPlayer);
-        console.log(NewParaText);
-        GussessLeftCount--;
-        guessLeft.text(GussessLeftCount);
-        if (NewParaText == psychcPlayer) {
-            //Print counter variables on UI
-            winCounter++
-            winCount.text(winCounter);
+        //Add check for getting only alphabates 
+
+        if (event.keyCode >= 65 && event.keyCode <= 90) {
+            console.log("input was a-z");
+            NewParaText = event.key;
+            //NewPara.toLowerCase()
+            NewParaText = NewParaText.toUpperCase();
+            PressedKeys.append(NewParaText);
+            audioElement.play();
+            var psychcPlayer = "0";
+            var random = Math.floor(Math.random() * 26) + 1;
+            psychcPlayer = letters[random];
+            console.log(psychcPlayer);
+            console.log(NewParaText);
+            GussessLeftCount--;
+            guessLeft.text(GussessLeftCount);
+            if (NewParaText == psychcPlayer) {
+                //Print counter variables on UI
+                winCounter++
+                winCount.text(winCounter);
+            }
+            else {
+                looseCounter++
+                looseCount.text(looseCounter);
+            }
+
+            //Game is over, user wants to play again
+            if (GussessLeftCount == 0) {
+                //isPlayagain = confirm("You Wanna Play Again??");
+                resetAll();
+            }
         }
-        else {
-            looseCounter++
-            looseCount.text(looseCounter);
+        else{
+            var msgText = "Please press key's A-Z.......";
+            $("#DisplayMessage").text(msgText);
         }
-       
-        //Game is over, user wants to play again
-        if (GussessLeftCount == 0) {
-            //isPlayagain = confirm("You Wanna Play Again??");
-            resetAll();
-        }
+
     }
 
 });
